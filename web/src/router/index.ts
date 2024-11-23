@@ -8,10 +8,18 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'About',
-    // lazy-loaded route
-    component: () => import('@/views/AboutView.vue')
+    path: '/settings',
+    name: 'Settings',
+    component: () => import('@/views/SettingsView.vue')
+  },
+  { 
+    path: '/endpoints',
+    name: 'Endpoints',
+    component: () => import('@/views/EndpointsView.vue') },
+  {
+    path: '/analytics',
+    name: 'Analytics',
+    component: () => import('@/views/AnaliticsView.vue')
   }
 ]
 

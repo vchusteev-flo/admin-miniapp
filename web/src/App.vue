@@ -4,11 +4,11 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </nav> -->
-    <div className="flex h-screen bg-gray-100">
-      <Sidebar />
-      <main className="flex-1 overflow-y-auto p-8">
+    <div className="flex flex-col h-screen bg-gray-100">
+      <main className="flex-1 overflow-y-auto p-4">
         <router-view />
       </main>
+        <Sidebar />
     </div>
 
     <!-- <div class="wrapper"> -->
