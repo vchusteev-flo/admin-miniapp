@@ -1,54 +1,20 @@
-<script setup lang="ts">
-import { SettingsButton, useWebApp, useWebAppMainButton } from 'vue-tg';
-
-import { } from 'vue-tg';
-
-  // получаем объект как из window.Telegram.WebApp
-  const app = useWebApp();
-  console.log(app, 'app')
-
-  // app.sendData('hello from mini app');
-
-  const mainButton = useWebAppMainButton();
-
-  // не работает ...
-  // const settingsButton = useWebAppSettingsButton();
-
-  mainButton.setMainButtonText('hello');
-  // mainButton.showMainButton();
-
-
-  const handleInit = () => {
-    console.log('run handle init')
-  }
-
-  const handleMainButtonProgress = () => {
-    mainButton.showMainButtonProgress();
-  }
-
-  function handleScanResult(data: string) {
-  // ...
-  }
-
-  function handleSettingsButton() {
-  // ...
-  console.log('handleSettingsButton clicked')
-}
-
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <nav>
+  <!-- <header> -->
+    <!-- <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-    <div class="wrapper">
-      <!-- <MiniApp msg="You did it!" /> -->
-      <button @click="handleMainButtonProgress">Прогресс</button>
+    </nav> -->
+    <div className="flex h-screen bg-gray-100">
+      <Sidebar />
+      <main className="flex-1 overflow-y-auto p-8">
+        <router-view />
+      </main>
     </div>
+
+    <!-- <div class="wrapper"> -->
+      <!-- <MiniApp msg="You did it!" /> -->
+      <!-- <button @click="handleMainButtonProgress">Прогресс</button> -->
+    <!-- </div> -->
     <!-- alert show alert message-->
     <!-- <tg-alert message="Hello!" /> -->
 
@@ -58,18 +24,53 @@ import { } from 'vue-tg';
     <!-- show confirmation popup with close and closeanyway buttons -->
     <!-- <ClosingConfirmation  /> -->
 
-    <!-- запускает Camera QR-->  
+    <!-- запускает Camera QR-->
     <!-- <ScanQr @result="handleScanResult"/> -->
 
-    <!-- запускает Camera QR-->  
-    <SettingsButton @click="handleSettingsButton" />
+    <!-- запускает Camera QR-->
+    <!-- <SettingsButton @click="handleSettingsButton" /> -->
 
     <!-- не понятно -->
     <!-- <tg-expanded-viewport force='true'/> -->
     <!-- <BiometricManager @init='handleInit' /> -->
-
-  </header>
+  <!-- </header> -->
 </template>
+
+<script setup lang="ts">
+import { Sidebar } from '@/components/ui/sidebar';
+import { useWebApp, useWebAppMainButton } from 'vue-tg';
+// получаем объект как из window.Telegram.WebApp
+const app = useWebApp()
+console.log(app, 'app')
+
+// app.sendData('hello from mini app');
+
+const mainButton = useWebAppMainButton()
+
+// не работает ...
+// const settingsButton = useWebAppSettingsButton();
+
+mainButton.setMainButtonText('hello')
+// mainButton.showMainButton();
+
+const handleInit = () => {
+  console.log('run handle init')
+}
+
+const handleMainButtonProgress = () => {
+  mainButton.showMainButtonProgress()
+}
+
+function handleScanResult(data: string) {
+  // ...
+}
+
+function handleSettingsButton() {
+  // ...
+  console.log('handleSettingsButton clicked')
+}
+</script>
+
 
 <style scoped>
 header {

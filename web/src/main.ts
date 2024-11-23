@@ -1,9 +1,8 @@
-import './assets/main.css';
-
 import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 import { BiometricManager, ClosingConfirmation, useWebAppMainButton, VueTelegramPlugin } from 'vue-tg';
 import App from './App.vue';
+import './index.css';
 import router from './router';
 
 const app = createApp(App)

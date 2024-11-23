@@ -27,28 +27,29 @@ bot.start((ctx) => {
   console.log(`First Name: ${firstName}`);
   console.log(`Last Name: ${lastName}`);
   console.log(`Username: ${username}`);
+	console.log(`WebAppUrl: ${webAppUrl}`)
 	
   usersData[userId] = { firstName, lastName, username };
 
 	const getContactBtn = Markup.button.contactRequest('Запрос пользователя', 1)
-  // ctx.reply(
-  //   'Добро пожаловать! Нажмите на кнопку ниже, чтобы запустить приложение',
-  //   Markup.keyboard([
-  //     Markup.button.webApp('Покажи мне веб сайт', process.env.WEB_APP_URL),
-  //   ])
-  // )
+  ctx.reply(
+    'Добро пожаловать! Нажмите на кнопку ниже, чтобы запустить приложение',
+    Markup.keyboard([
+      Markup.button.webApp('Покажи мне веб сайт', webAppUrl),
+    ])
+  )
 
 	// Добавляем кнопку для перехода на нужную страницу
-	// ctx.reply(
-	// 	"Launch mini app from inline keyboard!",
-	// 	Markup.inlineKeyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL_ABOUT)]),
-	// )
+	ctx.reply(
+		"Launch mini app from inline keyboard!",
+		Markup.inlineKeyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL_ABOUT)]),
+	)
 
 	// Передача данных в веб-приложение
-	// ctx.reply(
-	// 	"Launch mini app from keyboard!",
-	// 	Markup.keyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL)]),
-	// )
+	ctx.reply(
+		"Launch mini app from keyboard!",
+		Markup.keyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL)]),
+	)
 })
 
 bot.command("setmenu", ctx =>
@@ -60,12 +61,12 @@ bot.command("setmenu", ctx =>
 	}),
 );
 
-// bot.command("keyboard", ctx =>
-// 	ctx.reply(
-// 		"Launch mini app from keyboard!",
-// 		Markup.keyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL)]).resize(),
-// 	),
-// );
+bot.command("keyboard", ctx =>
+	ctx.reply(
+		"Launch mini app from keyboard!",
+		Markup.keyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL)]).resize(),
+	),
+);
 
 bot.on('message', async (ctx) => {
 	console.log('on message')
