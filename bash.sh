@@ -1,2 +1,2 @@
 #!/bin/bash
-lt --port 5173 --subdomain testsimpleminiapptele
+lt --port 3000 --subdomain testsimpleminiapptele

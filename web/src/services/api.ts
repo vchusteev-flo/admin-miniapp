@@ -1,6 +1,7 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const API_URL = 'http://localhost:3000';
+// const API_URL = 'http://localhost:3000';
+const API_URL = 'https://testsimpleminiapptele.loca.lt';
 
 export const requestContact = async (chatId: string, messageText:string, buttonText:string) => {
     try {

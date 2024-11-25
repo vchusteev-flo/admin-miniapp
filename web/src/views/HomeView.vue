@@ -5,7 +5,7 @@
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Requests</CardTitle>
+          <CardTitle className="p-4 text-sm font-medium">Total Requests</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">1,324,789</div>
@@ -14,7 +14,7 @@
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Average Response Time</CardTitle>
+          <CardTitle className="p-4 text-sm font-medium">Average Response Time</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">78ms</div>
@@ -23,7 +23,7 @@
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Error Rate</CardTitle>
+          <CardTitle className="p-4 text-sm font-medium">Error Rate</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">0.12%</div>
@@ -32,7 +32,7 @@
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Active Endpoints</CardTitle>
+          <CardTitle className="p-4 text-sm font-medium">Active Endpoints</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">24</div>

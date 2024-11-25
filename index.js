@@ -4,8 +4,8 @@ const cors = require('cors'); // Import cors
 const express = require("express");
 
 const PORT = 3000;
-const token = process.env.TELEGRAM_BOT_TOKEN;
-const webAppUrl = process.env.WEB_APP_URL;
+const token = process.env.TELEGRAM_BOT_TOKEN_PROD;
+const webAppUrl = process.env.WEB_APP_URL_PROD;
 
 const app = express();
 app.use(cors());
@@ -42,13 +42,13 @@ bot.start((ctx) => {
 	// Добавляем кнопку для перехода на нужную страницу
 	ctx.reply(
 		"Launch mini app from inline keyboard!",
-		Markup.inlineKeyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL_ABOUT)]),
+		Markup.inlineKeyboard([Markup.button.webApp("Launch", webAppUrl)]),
 	)
 
 	// Передача данных в веб-приложение
 	ctx.reply(
 		"Launch mini app from keyboard!",
-		Markup.keyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL)]),
+		Markup.keyboard([Markup.button.webApp("Launch", webAppUrl)]),
 	)
 })
 
@@ -57,14 +57,14 @@ bot.command("setmenu", ctx =>
 	ctx.setChatMenuButton({
 		text: "Launch",
 		type: "web_app",
-		web_app: { url: process.env.WEB_APP_URL },
+		web_app: { url: webAppUrl },
 	}),
 );
 
 bot.command("keyboard", ctx =>
 	ctx.reply(
 		"Launch mini app from keyboard!",
-		Markup.keyboard([Markup.button.webApp("Launch", process.env.WEB_APP_URL)]).resize(),
+		Markup.keyboard([Markup.button.webApp("Launch", webAppUrl)]).resize(),
 	),
 );
 
